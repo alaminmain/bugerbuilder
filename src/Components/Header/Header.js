@@ -9,15 +9,14 @@ const Header = () => {
         <div className="Navigation">
             <Navbar style={{
                 backgroundColor:"#D70F64",
-                height:"70px",
-
+                height:"70px"
             }}>
                 <NavbarBrand href="/" className="mr-auto ml-md-5 Brand">
-                    <img src={Logo} alt="logo" width="80px" />
+                    <img src={Logo} alt="logo" width="50px" />
                 </NavbarBrand>
                 <Nav className="mr-md-5">
                     <NavItem >
-                        <navLink href="#">Something</navLink>
+                        <NavLink href="#">Something</NavLink>
                     </NavItem>
                 </Nav>
             </Navbar>
