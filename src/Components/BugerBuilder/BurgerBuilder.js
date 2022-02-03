@@ -3,21 +3,23 @@ import Burger from "./Burger/Burger";
 import Controls from "./Controls/Controls";
 import { Modal,ModalBody,ModalHeader,ModalFooter,Button } from "reactstrap";
 import Summary from "./Summary/Summary";
-import { element } from "prop-types";
+import NavigationToCheckout from "./Navigation/CheckoutNavigation";
 
 const INGREDIENT_PRICES={
     salad:20,
     cheese:40,
     meat:90
 }
+
 export default class BurgerBuilder extends Component {
+   
     state={
         ingredients:[
             {
                 type:'salad', amount:0
             },
             {
-                type:'Cheese', amount:0
+                type:'cheese', amount:0
             },
             {
                 type:'meat', amount:0
@@ -64,8 +66,21 @@ export default class BurgerBuilder extends Component {
             modalOpen:!this.state.modalOpen
         })
     }
+
+
+    handleCheckout=()=>{
+        <NavigationToCheckout/>
+        //<Link to="/checkout">Users</Link>
+        // console.log(this.props);
+        // this.props.navigation.navigate('/checkout', null)
+        //this.props.history.push("/checkout");
+    }
+
+ 
     render() {
+       
         return (
+           
             <div>
                 <div className="d-flex flex-md-row flex-column">
                     <Burger ingredients={this.state.ingredients} />
@@ -85,7 +100,7 @@ export default class BurgerBuilder extends Component {
                         <Summary ingredients={this.state.ingredients} />
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="success"  onClick={this.toggleModal}>Continute To Checkout</Button>
+                        <NavigationToCheckout />
                         <Button color="secondary" onClick={this.toggleModal}>Close</Button>
                     </ModalFooter>
                 </Modal>
