@@ -8,7 +8,10 @@ function NavigationToCheckout() {
     }
     return (
       
-        <Button color="success"  onClick={handleClick}>Continute To Checkout</Button>
+        <Button  style={{
+          backgroundColor:"#d70F64",
+          
+      }}  onClick={handleClick}>Continute To Checkout</Button>
       
     );
   }

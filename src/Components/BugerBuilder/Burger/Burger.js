@@ -1,11 +1,13 @@
 import React from "react";
 import './Burger.css';
 import Ingredient from "../Ingredient/Ingredient";
-import { element } from "prop-types";
+
 
 const Burger = props => {
+    console.log(props);
     let ingredientArr=props.ingredients.map(item=>
         {
+
             let amountArr=[...Array(item.amount).keys()];
            return amountArr.map(_=>{
                return <Ingredient type={item.type} key={Math.random()} />

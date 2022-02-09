@@ -25,25 +25,25 @@ const INGREDIENT_PRICES={
 }
 
 export const reducer=(state=INITIAL_STATE,action)=>{
-    
-    const ingredient=[...state.ingredients];
+    console.log("from reducer",state);
+    const ingredients=[...state.ingredients];
     switch(action.type)
 
     {
         case actionTypes.ADD_INGREDIENT:
             
-            for(let item of ingredient){
+            for(let item of ingredients){
                 if(item.type===action.payload) item.amount++;
             }
             return{
                 ...state,
-                ingredient:ingredient,
+                ingredients:ingredients,
                 totalPrice:state.totalPrice+INGREDIENT_PRICES[action.payload]
             }
 
         case actionTypes.REMOVE_INGREDIENT:
             
-                for(let item of ingredient){
+                for(let item of ingredients){
                     if(item.type===action.payload) {
                     if(item.amount<=0) return state;
                      item.amount--;
@@ -51,9 +51,19 @@ export const reducer=(state=INITIAL_STATE,action)=>{
                 }
                 return{
                     ...state,
-                    ingredient:ingredient,
+                    ingredients:ingredients,
                     totalPrice:state.totalPrice-INGREDIENT_PRICES[action.payload]
                 }
+        case actionTypes.UPDATE_PURCHASABLE:
+            const sum=ingredients.reduce((sum,element)=>{
+                return sum+element.amount;
+            },0);
+            return{
+                ...state,
+                purchasable:sum>0,
+                
+            }
+            
         default:
             return state;
     }

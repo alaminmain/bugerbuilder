@@ -9,7 +9,7 @@ import {addIngredient,removeIngredient,updatePurchasable} from '../../redux/acti
 
 const mapStateToProps=state=>{
     return{
-        ingredient:state.ingredient,
+        ingredients:state.ingredients,
         totalPrice:state.totalPrice,
         purchasable:state.purchasable
 
@@ -20,7 +20,7 @@ const mapDispatchToProps=dispatch=>{
     return{
         addIngredient:(igtype)=>dispatch(addIngredient(igtype)),
         removeIngredient:(igtype)=>dispatch(removeIngredient(igtype)),
-        updatePurchasable:()=>dispatch(updatePurchasable),
+        updatePurchasable:()=>dispatch(updatePurchasable()),
     }
 }
  class BurgerBuilder extends Component {
@@ -31,20 +31,17 @@ const mapDispatchToProps=dispatch=>{
        
     }
 
-    updatePurchasable=ingredients=>{
-        const sum=ingredients.reduce((sum,element)=>{
-            return sum+element.amount;
-        },0);
-        this.setState({purchasable:sum>0})
-    }
+    
 
     addIngredientHandle=type=>{
        this.props.addIngredient(type);
+       this.props.updatePurchasable();
        
     }
 
     removeIngredientHandle=type=>{
         this.props.removeIngredient(type);
+        this.props.updatePurchasable();
     }
 
     toggleModal=()=>{
@@ -56,15 +53,12 @@ const mapDispatchToProps=dispatch=>{
 
     handleCheckout=()=>{
         <NavigationToCheckout/>
-        //<Link to="/checkout">Users</Link>
-        // console.log(this.props);
-        // this.props.navigation.navigate('/checkout', null)
-        //this.props.history.push("/checkout");
+      
     }
 
  
     render() {
-       
+        
         return (
            
             <div>
@@ -73,9 +67,9 @@ const mapDispatchToProps=dispatch=>{
                     <Controls 
                     ingredientsAdded={this.addIngredientHandle}
                     ingredientsRemoved={this.removeIngredientHandle}
-                    price={this.state.totalPrice}
+                    price={this.props.totalPrice}
                     toggleModal={this.toggleModal}
-                    purchasable={this.state.purchasable}
+                    purchasable={this.props.purchasable}
                     />
                 </div>
                 <Modal isOpen={this.state.modalOpen}>
