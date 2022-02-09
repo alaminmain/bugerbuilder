@@ -75,7 +75,9 @@ class Checkout extends Component
                         <option value="Bkash">Bkash</option>
                     </select>
                     <br />
-                    <Button style={{backgroundColor:"#d70f64"}} className="mr-auto" onClick={this.submitHandler}>Place Order</Button>
+                    <Button style={{backgroundColor:"#d70f64"}} className="mr-auto" onClick={this.submitHandler}
+                    disabled={!this.props.purchasable} 
+                    >Place Order</Button>
                     <Button color="secondary" className="ml-1" onClick={this.goBack} >Cancle
                     </Button>
                 </form>
