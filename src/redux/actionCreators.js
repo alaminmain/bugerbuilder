@@ -20,3 +20,8 @@ export const updatePurchasable=()=>{
         
     }
 }
+export const resetIngridents=()=>{
+    return{
+        type:actionTypes.RESET_INGREDIENT,
+    }
+}

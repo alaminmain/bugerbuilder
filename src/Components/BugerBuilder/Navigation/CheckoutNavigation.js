@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import {Button} from 'reactstrap';
 
-function NavigationToCheckout() {
+export function NavigationToCheckout() {
     let navigate = useNavigate();
     function handleClick() {
       navigate("/checkout");
@@ -16,4 +16,17 @@ function NavigationToCheckout() {
     );
   }
 
-export default NavigationToCheckout; 
+ export function NavigationToRoot() {
+    let navigate = useNavigate();
+    function handleClick() {
+      navigate("/");
+    }
+    return (
+      
+        <Button  style={{
+          backgroundColor:"#d20F23",
+          
+      }}  onClick={handleClick}>Go back</Button>
+      
+    );
+  }

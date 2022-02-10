@@ -3,7 +3,7 @@ import Burger from "./Burger/Burger";
 import Controls from "./Controls/Controls";
 import { Modal,ModalBody,ModalHeader,ModalFooter,Button } from "reactstrap";
 import Summary from "./Summary/Summary";
-import NavigationToCheckout from "./Navigation/CheckoutNavigation";
+import {NavigationToCheckout} from "./Navigation/CheckoutNavigation";
 import { connect } from "react-redux";
 import {addIngredient,removeIngredient,updatePurchasable} from '../../redux/actionCreators'
 
