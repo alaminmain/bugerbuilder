@@ -9,8 +9,8 @@ const Header = () => {
     return (
         <div className="Navigation">
             <Navbar style={{
-                backgroundColor:"#D70F64",
-                height:"70px"
+                backgroundColor: "#D70F64",
+                height: "70px"
             }}>
                 <NavbarBrand href="/" className="mr-auto ml-md-5 Brand">
                     <img src={Logo} alt="logo" width="50px" />
@@ -22,7 +22,11 @@ const Header = () => {
                     </NavItem>
                     <NavItem >
                         <NavLink exact="true" to="/orders" className="NavLink">Orders</NavLink>
-                        
+
+                    </NavItem>
+                    <NavItem >
+                        <NavLink exact="true" to="/login" className="NavLink">login</NavLink>
+
                     </NavItem>
                 </Nav>
             </Navbar>
