@@ -1,6 +1,10 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 
+
+
+
+
 export const addIngredient = igtype => {
     return {
         type: actionTypes.ADD_INGREDIENT,

@@ -92,7 +92,7 @@ class Auth extends Component {
                                     </div> : null
                                 }
 
-                                <button type="submit" className="btn btn-success">{this.state.mode === "Sign Up" ? "Login" : "Sign Up"}   </button>
+                                <button type="submit" className="btn btn-success">{this.state.mode != "Sign Up" ? "Login" : "Sign Up"}   </button>
                             </form>
                         </div>)}
                 </Formik>

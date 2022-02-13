@@ -29,9 +29,10 @@ export const auth = (email, password, mode) => {
             apiUrl = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=";
         axios.post(apiUrl + API_KEY,
             authData)
-            .then(response => 
-                dispatch(authSuccess())
-                );
+            .then(response => {
+                dispatch(authSuccess(response.data.idToken,response.data.localId));
+                
+            });
     }
 }
 export default auth;
