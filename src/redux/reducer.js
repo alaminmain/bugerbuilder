@@ -18,6 +18,9 @@ const INITIAL_STATE = {
     totalPrice: 80,
 
     purchasable: false,
+    token:null,
+    userId:null,
+
 }
 
 
