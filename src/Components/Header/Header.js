@@ -14,7 +14,7 @@ const mapStateToProps = state => {
 
 const Header = props => {
     let links = null;
-  
+
     if (props.token === null) {
         links = (
             <Nav className="mr-md-5">
@@ -35,6 +35,10 @@ const Header = props => {
             </NavItem>
             <NavItem >
                 <NavLink exact="true" to="/orders" className="NavLink">Orders</NavLink>
+
+            </NavItem>
+            <NavItem >
+                <NavLink exact="true" to="/logout" className="NavLink">logout</NavLink>
 
             </NavItem>
 

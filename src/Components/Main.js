@@ -7,6 +7,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Auth from "./Auth/Auth";
 import { connect } from 'react-redux';
 import { authCheck } from "../redux/authActionCreators";
+import Logout from "./Auth/Logout";
 
 const mapStateToProps = state => {
     return {
@@ -21,12 +22,12 @@ const mapDispatchToProps = dispatch => {
 }
 
 class Main extends Component {
-    
+
     componentDidMount() {
         this.props.authCheck();
     }
     render() {
-        
+
         let routes = null;
         if (this.props.token === null) {
             routes = (
@@ -44,14 +45,14 @@ class Main extends Component {
         else {
             console.log("I am here");
             routes = (
-                
+
                 <Routes>
                     <Route
                         path="*"
                         element={<Navigate replace to="/" />} />
                     <Route path="/orders" element={<Orders />} />
                     <Route path="/checkout" element={<Checkout />} />
-                    {/* <Route path="/login" element={<Auth />} /> */}
+                    <Route path="/logout" element={<Logout />} />
 
                     <Route path="/" element={<BurgerBuilder />} />
 
