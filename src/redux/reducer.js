@@ -132,7 +132,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 authLoading: action.payload,
             }
-
+ 
         case actionTypes.AUTH_FAILED:
             return {
                 ...state,
