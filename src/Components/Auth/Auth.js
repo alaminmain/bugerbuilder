@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Formik } from "formik";
-import auth from "../../redux/authActionCreators";
+import { auth } from "../../redux/authActionCreators";
 import { connect } from "react-redux";
 
 const mapDispatchToProps = dispatch => {

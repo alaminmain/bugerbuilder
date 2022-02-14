@@ -14,7 +14,7 @@ const mapStateToProps = state => {
 
 const Header = props => {
     let links = null;
-    console.log(props);
+  
     if (props.token === null) {
         links = (
             <Nav className="mr-md-5">
