@@ -6,37 +6,40 @@ import Logo from '../../assets/logo512.png';
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
-const mapStateToProps=state=>{
-    return{
-        token:state.token,
+const mapStateToProps = state => {
+    return {
+        token: state.token,
     }
 }
 
 const Header = props => {
-    let links=null;
-    if(props.token===null){
-        links=(  
-        <Nav className="mr-md-5">
-        
-        <NavItem >
-            <NavLink exact="true" to="/login" className="NavLink">login</NavLink>
+    let links = null;
+    console.log(props);
+    if (props.token === null) {
+        links = (
+            <Nav className="mr-md-5">
 
-        </NavItem>
-    </Nav>
-    );
+                <NavItem >
+                    <NavLink exact="true" to="/login" className="NavLink">login</NavLink>
+
+                </NavItem>
+            </Nav>
+        );
     }
-    else{
-        <Nav className="mr-md-5">
-        <NavItem >
-            <NavLink exact="true" to="/" className="NavLink">Burger Builder</NavLink>
+    else {
 
-        </NavItem>
-        <NavItem >
-            <NavLink exact="true" to="/orders" className="NavLink">Orders</NavLink>
+        links = (<Nav className="mr-md-5">
+            <NavItem >
+                <NavLink exact="true" to="/" className="NavLink">Burger Builder</NavLink>
 
-        </NavItem>
-        
-    </Nav>
+            </NavItem>
+            <NavItem >
+                <NavLink exact="true" to="/orders" className="NavLink">Orders</NavLink>
+
+            </NavItem>
+
+        </Nav>
+        );
     }
 
     return (
@@ -48,10 +51,10 @@ const Header = props => {
                 <NavbarBrand href="/" className="mr-auto ml-md-5 Brand">
                     <img src={Logo} alt="logo" width="50px" />
                 </NavbarBrand>
-               {links}
+                {links}
             </Navbar>
         </div>
     )
 }
 
-export default connect(mapStateToProps) (Header);
+export default connect(mapStateToProps)(Header);
